@@ -1,0 +1,17 @@
+name: Team Awesome's approval workflow
+on: pull_request_review
+jobs:
+  labelWhenApproved:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [12.x, 14.x]
+    steps:
+      - uses: actions/label-when-approved-action
+        with:
+          approvals: 1
+          github_token: token
+          add_label: sample label
+      - name: sample approval
+ 
